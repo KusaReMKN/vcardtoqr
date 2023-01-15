@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VCard to QR</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <style>
+        main {
+            max-width: 70ch;
+            padding: 3em 1em;
+            margin: auto;
+            line-height: 1.75;
+            font-size: 1.25em;
+            font-family: 'Noto Sans CJK JP, system-ui';
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+    <main>
+        <div id="intro" class="py-5 text-center">
+            <img src="/assets/assets.png" class="d-block mx-auto mb-4" alt="sasakulab" width="144px">
+            <h2>VCard to QR Code</h2>
+            <p>VCard 形式の QR コードを生成します。</p>
+        </div>
+        <hr>
+        <div id="config" class="">
+            <!-- Name -->
+            <div class="row g-2 p-2">
+                <span>氏名</span>
+                <div class="col-sm-6">
+                <div class="input-group">
+                    <span class="input-group-text">姓</span>
+                    <input type="text" class="form-control" placeholder="" aria-label="佐桜" aria-describedby="basic-addon1">
+                </div>
+                </div>
+                <div class="col-sm-6">
+                <div class="input-group">
+                    <span class="input-group-text">名</span>
+                    <input type="text" class="form-control" placeholder="" aria-label="彩斗" aria-describedby="basic-addon1">
+                </div>
+                </div>
+            </div>
+            <div class="row g-2 p-2">
+                <span>氏名カナ</span>
+                <div class="col-sm-6">
+                <div class="input-group">
+                    <span class="input-group-text">セイ</span>
+                    <input type="text" class="form-control" placeholder="" aria-label="ササクラ" aria-describedby="basic-addon1">
+                </div>
+                </div>
+                <div class="col-sm-6">
+                <div class="input-group">
+                    <span class="input-group-text">メイ</span>
+                    <input type="text" class="form-control" placeholder="" aria-label="アヤト" aria-describedby="basic-addon1">
+                </div>
+                </div>
+            </div>
+            <!-- Telephone Number -->
+            <div class="row g-2 p-2">
+                <span>電話番号</span>
+                <div class="col-sm-3">
+                    <div class="input-group">
+                        <label class="input-group-text">種別</label>
+                        <select class="form-select" id="inputGroupSelect01">
+                        <option value="home">自宅・携帯</option>
+                        <option value="work">仕事</option>
+                        <option value="fax">FAX</option>
+                        <option value="textphone">SMS</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-9">
+                    <div class="input-group">
+                        <label class="input-group-text">電話番号</label>
+                        <input type="text" class="form-control" aria-label="090-1234-5678">
+                    </div>
+                </div>
+            </div>
+            <!-- Mail Address-->
+            <div class="row g-2 p-2">
+                <span>メールアドレス</span>
+                <div class="input-group">
+                    <input type="text" class="form-control" aria-label="i@sasakulab.com">
+                </div>
+            </div>
+            <!-- Organization Name -->
+            <div class="row g-2 p-2">
+                <span>会社・組織名（所属名）</span>
+                <div class="input-group">
+                    <input type="text" class="form-control" aria-label="Sasakulab. Org.">
+                </div>
+            </div>
+            <!-- job -->
+            <div class="row g-2 p-2">
+                <span>役職・担当名</span>
+                <div class="input-group">
+                    <input type="text" class="form-control" aria-label="システム部　部長">
+                </div>
+            </div>
+            <!-- URL -->
+            <div class="row g-2 p-2">
+                <span>ホームページ</span>
+                <div class="input-group">
+                    <input type="text" class="form-control" aria-label="https://sasakulab.com">
+                </div>
+            </div>
+        </div>
+        <hr>
+        <p class="text-muted text-center" style="font-size: 12px;">(C) 2022 Sasakulab, Ayato Sasakura / <a href="https://github.com/sasakulab/vcardtoqr">Repositry</a></p>
+    </main>
+</body>
+
+</html>
