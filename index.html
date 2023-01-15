@@ -11,6 +11,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
+    <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.js"></script>
+    <script defer src="./main.js"></script>
     <style>
         main {
             max-width: 70ch;
@@ -18,7 +21,7 @@
             margin: auto;
             line-height: 1.75;
             font-size: 1.25em;
-            font-family: 'Noto Sans CJK JP, system-ui';
+            font-family: 'Noto Sans CJK JP', 'system-ui';
         }
     </style>
 </head>
@@ -38,13 +41,13 @@
                 <div class="col-sm-6">
                 <div class="input-group">
                     <span class="input-group-text">姓</span>
-                    <input type="text" class="form-control" placeholder="" aria-label="佐桜" aria-describedby="basic-addon1">
+                    <input id="LastName" type="text" class="form-control" placeholder="" aria-label="佐桜" aria-describedby="basic-addon1">
                 </div>
                 </div>
                 <div class="col-sm-6">
                 <div class="input-group">
                     <span class="input-group-text">名</span>
-                    <input type="text" class="form-control" placeholder="" aria-label="彩斗" aria-describedby="basic-addon1">
+                    <input id="FirstName" type="text" class="form-control" placeholder="" aria-label="彩斗" aria-describedby="basic-addon1">
                 </div>
                 </div>
             </div>
@@ -53,69 +56,190 @@
                 <div class="col-sm-6">
                 <div class="input-group">
                     <span class="input-group-text">セイ</span>
-                    <input type="text" class="form-control" placeholder="" aria-label="ササクラ" aria-describedby="basic-addon1">
+                    <input id="LastNameKana" type="text" class="form-control" placeholder="" aria-label="ササクラ" aria-describedby="basic-addon1">
                 </div>
                 </div>
                 <div class="col-sm-6">
                 <div class="input-group">
                     <span class="input-group-text">メイ</span>
-                    <input type="text" class="form-control" placeholder="" aria-label="アヤト" aria-describedby="basic-addon1">
+                    <input id="FirstNameKana" type="text" class="form-control" placeholder="" aria-label="アヤト" aria-describedby="basic-addon1">
                 </div>
                 </div>
             </div>
             <!-- Telephone Number -->
-            <div class="row g-2 p-2">
-                <span>電話番号</span>
-                <div class="col-sm-3">
-                    <div class="input-group">
-                        <label class="input-group-text">種別</label>
-                        <select class="form-select" id="inputGroupSelect01">
-                        <option value="home">自宅・携帯</option>
-                        <option value="work">仕事</option>
-                        <option value="fax">FAX</option>
-                        <option value="textphone">SMS</option>
-                        </select>
+                <div class="g-2 p-2">
+                    <span>電話番号</span>
+                    <button class="btn btn-primary w-100 mb-1" onclick="addTelForm()">電話番号を追加</button>
+                </div>
+                <div id="tel">
+                    <div class="row g-2 p-2" id="tel1div">
+                        <div class="col-sm-3">
+                            <div class="input-group">
+                                <label class="input-group-text">種別</label>
+                                <select class="form-select" id="telselect1">
+                                <option value="HOME" selected>自宅</option>
+                                <option value="CELL">携帯</option>
+                                <option value="VOICE">その他</option>
+                                <option value="WORK">仕事</option>
+                                <option value="FAX">FAX</option>
+                                <option value="TEXTPHONE">SMS</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                <label class="input-group-text">電話番号 #1</label>
+                                <input type="tel" class="form-control" id="tel1" aria-label="090-1234-5678">
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-sm-9">
-                    <div class="input-group">
-                        <label class="input-group-text">電話番号</label>
-                        <input type="text" class="form-control" aria-label="090-1234-5678">
-                    </div>
-                </div>
-            </div>
             <!-- Mail Address-->
-            <div class="row g-2 p-2">
-                <span>メールアドレス</span>
-                <div class="input-group">
-                    <input type="text" class="form-control" aria-label="i@sasakulab.com">
+                <div class="g-2 p-2">
+                    <span>メールアドレス</span>
+                    <button class="btn btn-primary w-100 mb-1" onclick="addemailForm()">メールアドレスを追加</button>
+                </div>
+                <div id="email">
+                    <div class="row g-2 p-2" id="emaildiv">
+                        <div class="col-sm-3">
+                            <div class="input-group">
+                                <label class="input-group-text">種別</label>
+                                <select class="form-select" id="emailselect1">
+                                <option value="HOME" selected>自宅</option>
+                                <option value="CELL">携帯</option>
+                                <option value="INTERNET">その他</option>
+                                <option value="WORK">仕事</option>
+                                </select>
+                            </div>
+                        </div>
+                    <div class="col-sm-9">
+                        <div class="input-group">
+                            <label class="input-group-text">メールアドレス #1</label>
+                            <input id="email1" type="email" class="form-control" aria-label="090-1234-5678">
+                        </div>
+                    </div>
                 </div>
             </div>
             <!-- Organization Name -->
             <div class="row g-2 p-2">
                 <span>会社・組織名（所属名）</span>
                 <div class="input-group">
-                    <input type="text" class="form-control" aria-label="Sasakulab. Org.">
+                    <input id="Organization" type="text" class="form-control" aria-label="Sasakulab. Org.">
                 </div>
             </div>
             <!-- job -->
             <div class="row g-2 p-2">
                 <span>役職・担当名</span>
                 <div class="input-group">
-                    <input type="text" class="form-control" aria-label="システム部　部長">
+                    <input id="Role" type="text" class="form-control" aria-label="システム部　部長">
+                </div>
+            </div>
+            <!-- 住所 -->
+            <div class="row g-2 p-2">
+                <span>住所</span>
+                    <div class="col-sm-3">
+                        <div class="input-group">
+                            <label class="input-group-text">国</label>
+                            <input id="Country" type="text" class="form-control" name="" id="" value="日本">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="input-group">
+                            <label class="input-group-text">郵便番号</label>
+                            <input id="PostalCode" type="text" class="form-control" name="" id="" value="" onkeyup="AjaxZip3.zip2addr(this,'','都道府県','市区町村','以降の住所')"><br>
+                        </div>
+                    </div>
+                    <div class="col-sm-5">
+                        <div class="input-group">
+                            <label class="input-group-text">都道府県</label>
+                            <input id="Prefecture" type="text" class="form-control" name="都道府県" id="" value=""><br>
+                        </div>
+                    </div>
+                </div>
+            <div class="row g-2 p-2">
+                <div class="input-group">
+                    <label class="input-group-text">市区町村</label>
+                    <input id="City" type="text" class="form-control" name="市区町村" id="" value=""><br>
+                </div>
+                <div class="input-group">
+                    <label class="input-group-text">住所１（地区・番地）</label>
+                    <input id="Address1" type="text" class="form-control" name="以降の住所" id="" value=""><br>
+                </div>
+                <div class="input-group">
+                    <label class="input-group-text">住所２（建物名・部屋番号）</label>
+                    <input id="Address2" type="text" class="form-control" name="" id="" value=""><br>
                 </div>
             </div>
             <!-- URL -->
             <div class="row g-2 p-2">
                 <span>ホームページ</span>
                 <div class="input-group">
-                    <input type="text" class="form-control" aria-label="https://sasakulab.com">
+                    <input id="HomePage" type="text" class="form-control" aria-label="https://sasakulab.com">
+                </div>
+            </div>
+        </div>
+        <div id="proceed">
+            <div class="row g-3 p-2">
+                <div class="col-sm-6 align-self-center">
+                    <img src="/assets/qrplace.png" alt="qr" name="qr" id="qr" width="300px">
+                </div>
+                <div class="col-sm-6 align-self-center">
+                    <button class="btn btn-primary w-100 mb-1" type="button" onclick="generateQR()">QR 生成</button>
+                    <button class="btn btn-outline-primary w-100 mb-1" type="button" onclick="downloadVCardRAW()">VCard ファイル 書き出し</button>
                 </div>
             </div>
         </div>
         <hr>
-        <p class="text-muted text-center" style="font-size: 12px;">(C) 2022 Sasakulab, Ayato Sasakura / <a href="https://github.com/sasakulab/vcardtoqr">Repositry</a></p>
+        <p class="text-muted text-center" style="font-size: 12px;">(C) 2022 Sasakulab, Ayato Sasakura / <a href="https://github.com/sasakulab/vcardtoqr">Repository</a></p>
     </main>
-</body>
 
+    <!-- Tel Template -->
+    <template id="appendTelTemplate">
+        <div class="row g-2 p-2" id="tel1div">
+            <div class="col-sm-3">
+                <div class="input-group">
+                    <label class="input-group-text">種別</label>
+                    <select class="form-select" id="telselect1">
+                    <option value="HOME" selected>自宅</option>
+                    <option value="CELL">携帯</option>
+                    <option value="VOICE">その他</option>
+                    <option value="WORK">仕事</option>
+                    <option value="FAX">FAX</option>
+                    <option value="TEXTPHONE">SMS</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-9">
+                <div class="input-group">
+                    <label class="input-group-text">電話番号 #1</label>
+                    <input type="tel" class="form-control" id="tel1" aria-label="090-1234-5678">
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <!-- Email Template -->
+    <template id="appendemailTemplate">
+        <div class="row g-2 p-2" id="email1div">
+            <div class="col-sm-3">
+                <div class="input-group">
+                    <label class="input-group-text">種別</label>
+                    <select class="form-select" id="emailselect1">
+                    <option value="HOME" selected>自宅</option>
+                    <option value="CELL">携帯</option>
+                    <option value="INTERNET">その他</option>
+                    <option value="WORK">仕事</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-9">
+                <div class="input-group">
+                    <label class="input-group-text">メールアドレス #1</label>
+                    <input type="text" class="form-control" id="email1" aria-label="i@sasakulab.com">
+                </div>
+            </div>
+        </div>
+    </template>
+
+</body>
 </html>
