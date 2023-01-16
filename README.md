@@ -1,4 +1,4 @@
-# VCard to QR Code
+# renraQR (VCard to QR Code)
 
 連絡先を簡単に QR コードにできます。
 
@@ -12,3 +12,9 @@ MIT LICENSE
 
 - [Bootstrap v5.3.0-alpha1](https://github.com/twbs/bootstrap)
 - [AjaxZip3](https://github.com/ajaxzip3/ajaxzip3.github.io)
+- [QRious](https://github.com/neocotic/qrious)
+
+## Special Thanks
+
+- @KuSaReMKN / QR コード文字化け問題の解決
+- @yude / `renraQR` の名付け親
