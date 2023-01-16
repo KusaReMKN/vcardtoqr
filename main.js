@@ -97,6 +97,11 @@ function downloadVCardRAW() {
     element.click();
 }
 
+const toUtf8 = str =>
+    Array.from(new TextEncoder().encode(str)).map(c =>
+        String.fromCharCode(c)
+    ).join('');
+
 function generateQR() {
     var str = ''
     data = generateVCard()
@@ -106,7 +111,7 @@ function generateQR() {
 
     var qr = new QRious({
         element: document.getElementById('canvas_qr'),
-        value: str
+        value: toUtf8(str),
     })
     qr.background = '#FFF'; //背景色
     qr.backgroundAlpha = 1.0; // 背景の透過率
