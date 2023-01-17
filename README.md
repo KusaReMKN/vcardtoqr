@@ -4,6 +4,8 @@
 
 できあがった QR コードをスマートフォンで読むと、簡単に連絡先に追加できます。やったぁ！
 
+→ [QR コードを作ってみる](https://tools.sasakulab.com/renraqr/)
+
 ## License
 
 MIT LICENSE
