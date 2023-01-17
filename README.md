@@ -18,5 +18,5 @@ MIT LICENSE
 
 ## Special Thanks
 
-- @KuSaReMKN / QR コード文字化け問題の解決
+- @KusaReMKN / QR コード文字化け問題の解決
 - @yude / `renraQR` の名付け親
