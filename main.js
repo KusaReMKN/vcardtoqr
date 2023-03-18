@@ -87,7 +87,7 @@ function downloadVCardRAW() {
     var str = ''
     data = generateVCard()
     for (i=0;i<data.length;i++){
-        str = str + data[i] + "\n"
+        str = str + data[i] + "\r\n"
     }
     const blob = new Blob([str],{type:"text/x-vcard"});
     let element = document.createElement('a');
